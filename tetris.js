@@ -2,7 +2,12 @@ const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 
 context.scale(20, 20);
-
+	    window.addEventListener("keydown", function(e) {
+    // space, page up, page down and arrow keys:
+    if([32, 33, 34, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
 function arenaSweep() {
     let rowCount = 1;
     outer: for (let y = arena.length -1; y > 0; --y) {
